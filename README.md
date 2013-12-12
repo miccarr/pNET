@@ -1,6 +1,6 @@
 pNET
 ====
-Dirty citizen wireless network for RPi
+Sketchy citizen wireless network for RPi
 
 Files
 -----
