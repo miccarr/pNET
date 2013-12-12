@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # pNET - Citizen network ====================================================
 # Free to share, edit, copy this code, but you must crediting pNET as source.
-# pDISCOVER watch around networks to connect them
+# pDISCOVER Watch around networks to select a pNET parent and connect to it
 
 
 import config
