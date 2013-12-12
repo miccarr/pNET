@@ -4,7 +4,7 @@ from BaseHTTPServer import HTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 class HTTPHandler (SimpleHTTPRequestHandler):
-	server_version = "pNODE-for-pNET/HTTP/0.1"
+	server_version = "pHOME-for-pNET/HTTP/0.1"
 	
 	def do_GET(self):
 		if(self.path[0:4] == "/new" && self.client_address[0:-3]=='10.0.0.'):
@@ -38,12 +38,12 @@ class HTTPHandler (SimpleHTTPRequestHandler):
 
 try:
 	httpd = HTTPServer(('', 80), HTTPHandler)
-	print "[pNET]  pNODE started"
+	print "[pNET] pHOME : started"
 	httpd.serve_forever()
 
 except KeyboardInterrupt:
-	print "[pNET] pNODE ended by ^C"
+	print "[pNET] pHOME : ended by ^C"
 
 except Exception, error:
-	print "[pNET] pNODE error: " + str(error)
+	print "[pNET] pHOME error: " + str(error)
 	sys.exit()

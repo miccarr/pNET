@@ -50,9 +50,8 @@ if len(ssid_list) != 0:
 		print "\n[pNET] pDISCOVER : Biggest pNET via '" + ssid + "' (Unique)"
 	cmd('iwconfig  ' + config['if','parent'] + ' essid "' + ssid + '"')
 	cmd('dhclient ' + config['if','parent'])
-	
+
 	# Define parent.pNET and node.pNET
-	#myIP = cmd('ifconfig ' + config['if','parent'] + "|grep 'inet '|awk '{print $2}'")
 	parent = cmd('netstat -rn|grep ' + config['if','parent'] + "|grep '0.0.0.0'|awk '{print $3}'")
 	f = open('/etc/hosts','w')
 	f.write('127.0.0.1 localhost\n')

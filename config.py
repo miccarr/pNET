@@ -10,8 +10,8 @@ config['if', 'parent'] = 'wlan0'
 config['if', 'childs'] = 'wlan1'
 
 # Node & domain infos ======================================
-config['node', 'name'] = "first" # xxxxxxx.node.pnet
-config['node', 'domain'] = "" # xxxxxxxx.pnet
-config['node', 'delegate'] = "" # delegate domain to
+config['node', 'name'] = "first" # .node.pnet
+config['node', 'domain'] = "" # .pnet
+config['node', 'delegate'] = "" # delegate domain to another
 config['node', 'desc'] = "" # Describe your domain
 config['node', 'keywords'] = [] # Keywords for your domain

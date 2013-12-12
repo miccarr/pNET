@@ -11,7 +11,7 @@ import config
 cmd = commands.getoutput
 
 cmd('ifconfig ' + config['if','childs'] +' up')
-childsMAC = cmd("ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'")
+childsMAC = cmd("ifconfig " + config['if','childs'] + " | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'")
 cmd('ifconfig ' + config['if','childs'] +' down')
 
 # Selecting node id
@@ -60,7 +60,8 @@ f.write("}\n")
 f.write("option routers 10."+nodeID+".254;\n")
 f.write("option domain-name 'node.pnet';\n")
 f.write("option domain-name-servers ")
-ns = cmd("cat /etc/resolv.conf|grep 'nameserver'|awk '{print $2}'")
+ns = "10."+nodeID+".254\n" #current node first
+ns += cmd("cat /etc/resolv.conf|grep 'nameserver'|awk '{print $2}'")
 ns = ns.split('\n')
 print ', '.join(ns)
 f.write(";\n")
