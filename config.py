@@ -15,3 +15,6 @@ config['node', 'domain'] = "" # .pnet
 config['node', 'delegate'] = "" # delegate domain to another
 config['node', 'desc'] = "" # Describe your domain
 config['node', 'keywords'] = [] # Keywords for your domain
+
+# Files sharing ============================================
+config['files', 'dir'] = "/root/files.pnet/"

@@ -31,6 +31,16 @@ class DNSQuery:
 			return config['node','delegate']
 		else:
 			return cIP
+	elif(fqdn == 'file.pnet.'):
+		return cIP
+	elif(fqdn[-10:] == 'file.pnet.'):
+		file=fqdn.split('.')
+		if(len(file)==5):
+			if(is_file(config['files','dir']+'/'+file[1]+'.part'+file[0])):
+				return cIP
+		elif(len(file)==4):
+			if(is_file(config['files','dir']+'/'+file[0]+'.info')):
+				return cIP
 	return '';
   
   def reponse(self, ip):
@@ -42,7 +52,7 @@ class DNSQuery:
       packet+='\xc0\x0c'                                             # Pointer to domain name
       packet+='\x00\x01\x00\x01\x00\x00\x00\x3c\x00\x04'             # Response type, ttl and resource data length -> 4 bytes
       packet+=str.join('',map(lambda x: chr(int(x)), ip.split('.'))) # 4bytes of IP
-    return packet
+	return packet
 
 if __name__ == '__main__':
 
@@ -56,7 +66,7 @@ if __name__ == '__main__':
       ip = p.searchFor(p.domaine)
       if ip != '':
       	udps.sendto(p.reponse(ip), addr)
-      	print '[pNET] pNS: %s -> %s' % (p.domaine, ip)
+      	print '[pNET] pNS: responded %s -> %s' % (p.domaine, ip)
   except KeyboardInterrupt:
     print '[pNET] pNS: HALTED WITH ^C'
     udps.close()
