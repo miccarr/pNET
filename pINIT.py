@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 # pNET - Citizen network ====================================================
 # Free to share, edit, copy this code, but you must crediting pNET as source.
 # pINIT defines the node ID, configure and start DHCP server
@@ -10,9 +11,9 @@ import config
 
 cmd = commands.getoutput
 
-cmd('ifconfig ' + config['if','childs'] +' up')
-childsMAC = cmd("ifconfig " + config['if','childs'] + " | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'")
-cmd('ifconfig ' + config['if','childs'] +' down')
+cmd('ifconfig ' + conf['if','childs'] +' up')
+childsMAC = cmd("ifconfig " + conf['if','childs'] + " | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'")
+cmd('ifconfig ' + conf['if','childs'] +' down')
 
 # Selecting node id
 nodeID = ''
@@ -81,7 +82,7 @@ f.write("}\n")
 #f.write("    }\n")
 f.close()
 f = open('/etc/conf.d/dhcp', 'w')
-f.write('DHCP4_ARGS="-q ' + config['if','childs'] + '"')
+f.write('DHCP4_ARGS="-q ' + conf['if','childs'] + '"')
 
 # Starting up DHCPd
 cmd('systemctl restart dhcpd.service')

@@ -1,20 +1,21 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 # pNET - Citizen network ====================================================
 # Free to share, edit, copy this code, but you must crediting pNET as source.
 # pBOX CONFIGURATION FILE
 
-config={}
+conf={}
 
 # Wireless interface names =================================
-config['if', 'parent'] = 'wlan0'
-config['if', 'childs'] = 'wlan1'
+conf['if', 'parent'] = 'wlan0'
+conf['if', 'childs'] = 'wlan1'
 
 # Node & domain infos ======================================
-config['node', 'name'] = "first" # .node.pnet
-config['node', 'domain'] = "" # .pnet
-config['node', 'delegate'] = "" # delegate domain to another
-config['node', 'desc'] = "" # Describe your domain
-config['node', 'keywords'] = [] # Keywords for your domain
+conf['node', 'name'] = "first" # .node.pnet
+conf['node', 'domain'] = "" # .pnet
+conf['node', 'delegate'] = "" # delegate domain to another
+conf['node', 'desc'] = "" # Describe your domain
+conf['node', 'keywords'] = [] # Keywords for your domain
 
 # Files sharing ============================================
-config['files', 'dir'] = "/root/files.pnet/"
+conf['files', 'dir'] = "/root/files.pnet/"
